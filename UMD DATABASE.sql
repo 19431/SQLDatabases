@@ -1,10 +1,7 @@
-/*create database UMD;*/
+
 select * from UMD_event;
 
 use UMD;
-/*use master;*/
-
-/*drop database UMD;*/
 
 create table Departments(
 Dep_name varchar(40) not null primary key,
