@@ -1,3 +1,13 @@
+/*In order to main a simple yet elegant database model, certain assumptions were applied to the model above
+
+Only first 5 characters of zip codes are accounted for
+Only bank ATM transactions (deposit/withdrawal) are modeled by this database. In bank transactions as well as third party ATM vendor transactions are not accounted for
+All transactions will be conducted within United States.
+Credit cards can’t be used to perform an ATM transaction, Therefore all cards are “debit cards”
+Besides typical checkings and savings privileges, this model does not account for the different types of individual accounts and the benefits (“superpowers”) they may posses. 
+*/
+
+
 drop database if exists virtualATM;
 create database virtualATM;
 use virtualATM;
@@ -137,33 +147,3 @@ describe atminfo;
 
 
 explain select * from atminfo;
-
-
-/*keeps track of customer login details
-CREATE TABLE LoginDetails (
-    Login_Position BIGINT ZEROFILL AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    Email VARCHAR(250) NOT NULL,
-    Backup_Email VARCHAR(250) NOT NULL,
-    User_Name VARCHAR(20) NOT NULL,
-    User_Password CHAR(8) NOT NULL,
-    Recovery_Phrase VARCHAR(100) NOT NULL,
-    Login_Attempts BIGINT DEFAULT 0,
-    Customer_Id BIGINT UNSIGNED NOT NULL,
-    ATM_Serial_No BIGINT UNSIGNED NOT NULL,
-    CONSTRAINT Customer_fk4 FOREIGN KEY (Customer_Id)
-        REFERENCES CustomerDetails (Customer_Id),
-    CONSTRAINT ATM_fk4 FOREIGN KEY (ATM_Serial_No)
-        REFERENCES atminfo (ATM_Serial_No)
-);
-
-
-
-In order to main a simple yet elegant database model, certain assumptions were applied to the model above
-
-Only first 5 characters of zip codes are accounted for
-Only bank ATM transactions (deposit/withdrawal) are modeled by this database. In bank transactions as well as third party ATM vendor transactions are not accounted for
-All transactions will be conducted within United States.
-Credit cards can’t be used to perform an ATM transaction, Therefore all cards are “debit cards”
-Besides typical checkings and savings privileges, this model does not account for the different types of individual accounts and the benefits (“superpowers”) they may posses. 
-
-*/
